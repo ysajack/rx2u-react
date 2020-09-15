@@ -4,6 +4,7 @@ import Home from './pages/Home.js';
 import CopyFooter from './pages/components/CopyFooter.js';
 import About from './pages/About.js';
 import OrderStatus from './pages/OrderStatus.js';
+import RxPickup from './pages/RxPickup.js';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         </React.Fragment>
       )}
       />
+      <Route path="/rxpickup" component={RxPickup} />
       <Route path="/about" component={About} />
       <Route path="/orderstatus" component={OrderStatus} />
       <CopyFooter />

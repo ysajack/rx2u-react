@@ -6,14 +6,42 @@ import logo from './templated-erubescent/images/rx2ulogo.png';
 import Banner from './components/Banner.js';
 import Slogan from './components/Slogan.js';
 
-class About extends Component {
+class OrderStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      orders: []
+      orders: [],
+      orderNum: null
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({orderNum: event.target.value});
+  }
+
+  handleSubmit(event) {
+    fetch("https://rx2u-rest.appspot.com/rest/orderService/lookupOrder/"+ this.state.orderNum)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              orders: result
+            });
+          },
+
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    event.preventDefault();
   }
 
   componentDidMount(){
@@ -108,8 +136,17 @@ class About extends Component {
               </div>
             <Link className="button" to="/">Close</Link>
             </fieldset>
+
+            <div id="ordStat">
+             <form onSubmit={this.handleSubmit}>
+              Enter order number: <br></br>
+              <input type="text" value={this.state.value} onChange={this.handleChange} /><br></br>
+              <button class="button" >Submit</button>
+             </form>
+           </div>
+
           </div>
-            </div>
+          </div>
 
           </div >
           </div>
@@ -119,4 +156,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default OrderStatus;

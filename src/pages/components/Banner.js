@@ -16,7 +16,7 @@ class Banner extends Component {
           <div id="menu">
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><a >Request Rx Pickup</a></li>
+              <li><Link to="/rxpickup">Request Rx Pickup</Link></li>
               <li><Link to="/orderstatus">Order Status</Link></li>
               <li><Link to="/about">About</Link></li>
             </ul>
