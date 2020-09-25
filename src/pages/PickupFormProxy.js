@@ -5,9 +5,10 @@ import './templated-erubescent/fonts.css';
 import logo from './templated-erubescent/images/rx2ulogo.png';
 import Banner from './components/Banner.js';
 import Slogan from './components/Slogan.js';
-import PickupForm from './components/PickupForm.js';
+import Proxy from './components/Proxy.js';
 
-class RxPickup extends Component {
+
+class PickupFormProxy extends Component {
 
   render() {
     return (
@@ -21,6 +22,7 @@ class RxPickup extends Component {
          <div id="breadscrumbs">
           <Link to="/">Home >> </Link> 
           <Link to="/rxpickup">Rx Pickup >> </Link> 
+          <Link to="/proxy">Proxy >> </Link> 
        
         </div>
 
@@ -28,11 +30,11 @@ class RxPickup extends Component {
          <div className="extra2 margin-btm container">
          <div className="ebox1">
 
-         <div className="title">
+         <div class="title">
           <h2>Please enter the following information:</h2>
          </div>
 
-         <PickupForm />
+         <Proxy />
 
          </div>
          </div>
@@ -43,4 +45,4 @@ class RxPickup extends Component {
   }
 }
 
-export default RxPickup;
+export default PickupFormProxy;
